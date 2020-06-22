@@ -1,0 +1,170 @@
+# Spanish translations for com.felixbrezo.GraniteTemplate package.
+# Copyright (C) 2020 THE com.felixbrezo.GraniteTemplate'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.felixbrezo.GraniteTemplate package.
+# Automatically generated, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.felixbrezo.GraniteTemplate\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-23 09:20+0200\n"
+"PO-Revision-Date: 2020-06-22 21:40+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/com.felixbrezo.GraniteTemplate.desktop.in:4
+#: data/com.felixbrezo.GraniteTemplate.appdata.xml.in:6 src/Window.vala:50
+#: src/gui/AboutDialog.vala:43 src/gui/HeaderBar.vala:35
+#: src/gui/WelcomeView.vala:29
+msgid "GraniteTemplate"
+msgstr "GraniteTemplate"
+
+#: data/com.felixbrezo.GraniteTemplate.desktop.in:5
+#: data/com.felixbrezo.GraniteTemplate.appdata.xml.in:7
+#: src/gui/AboutDialog.vala:44
+msgid "Just another template"
+msgstr "Simplemente otra plantilla"
+
+#: data/com.felixbrezo.GraniteTemplate.desktop.in:6
+msgid "A template for developing new Vala applications"
+msgstr "Una plantilla para desarrollar nuevas aplicaciones en Vala"
+
+#: data/com.felixbrezo.GraniteTemplate.desktop.in:10
+msgid "computer-laptop"
+msgstr ""
+
+#: data/com.felixbrezo.GraniteTemplate.desktop.in:12
+#, fuzzy
+msgid "Development;Personal;"
+msgstr "Activos;Personal"
+
+#: data/com.felixbrezo.GraniteTemplate.appdata.xml.in:9
+msgid "A template for developing new Vala applications."
+msgstr "Una plantilla para desarrollar nuevas aplicaciones en vala"
+
+#: src/Window.vala:100
+msgid "english"
+msgstr "spanish"
+
+#: src/Window.vala:100
+msgid "Hello hackers! I am a computer!"
+msgstr "¡Hola hackers! ¡Soy un ordenador!"
+
+#: src/Window.vala:111
+msgid "Nothing done because something wrong happened"
+msgstr "No se ha hecho nada porque algo erróneo sucedió"
+
+#: src/Window.vala:119
+msgid "https://github.com/febrezo/valoro/master/doc/support/en/"
+msgstr "https://github.com/febrezo/valoro/master/doc/support/es/"
+
+#: src/gui/AboutDialog.vala:41
+msgid "Félix Brezo (felixbrezo@disroot.org)"
+msgstr "Félix Brezo (felixbrezo@disroot.org)"
+
+#: src/gui/AboutDialog.vala:45
+msgid "Copyright © 2020 Félix Brezo"
+msgstr "Copyright © 2020 Félix Brezo"
+
+#: src/gui/AboutDialog.vala:46
+msgid "1.0"
+msgstr "1.0"
+
+#: src/gui/AboutDialog.vala:51
+#, fuzzy
+msgid "https://github.com/febrezo/GraniteTemplate"
+msgstr "https://github.com/febrezo/GraniteTemplate"
+
+#: src/gui/AboutDialog.vala:52
+msgid "Website"
+msgstr "Sitio web"
+
+#: src/gui/HeaderBar.vala:56
+msgid "Go to main window"
+msgstr "Ir a la ventana principal"
+
+#: src/gui/HeaderBar.vala:61
+msgid "Speak something"
+msgstr "Decir algo"
+
+#: src/gui/HeaderBar.vala:66
+msgid "Open menu"
+msgstr "Abrir menú"
+
+#: src/gui/HeaderBar.vala:71
+msgid "Add new operation"
+msgstr "Añadir una nueva operación"
+
+#: src/gui/MainView.vala:25
+msgid "Some sample text"
+msgstr "Algo de texto de ejemplo"
+
+#: src/gui/SampleDialog.vala:30
+msgid "Sample dialog"
+msgstr "Diálogo de ejemplo"
+
+#: src/gui/SampleDialog.vala:31
+msgid "Just showing some text"
+msgstr "Mostrand simplemente algo de texto"
+
+#: src/gui/SampleDialog.vala:41
+msgid "Copy to clipboard"
+msgstr "Copiar al portapapeles"
+
+#: src/gui/SampleDialog.vala:46
+msgid "A sample Loremp ipsum text"
+msgstr "Un texto Lorem ipsum de ejemplo"
+
+#: src/gui/SampleDialog.vala:50
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in ligula "
+"sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis "
+"metus magna. Curabitur id metus volutpat risus sodales pretium. Vestibulum "
+"ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; "
+"Morbi rutrum dictum egestas. Mauris semper suscipit massa vitae facilisis. "
+msgstr ""
+
+#: src/gui/SettingsMenu.vala:35
+msgid "Theme"
+msgstr "Tema"
+
+#: src/gui/SettingsMenu.vala:41
+msgid "Light background"
+msgstr "Fondo claro"
+
+#: src/gui/SettingsMenu.vala:42
+msgid "Dark background"
+msgstr "Fondo oscuro"
+
+#: src/gui/SettingsMenu.vala:51 src/gui/WelcomeView.vala:32
+msgid "Looking for help?"
+msgstr "¿Buscas ayuda?"
+
+#: src/gui/SettingsMenu.vala:57
+msgid "About…"
+msgstr "Acerca de…"
+
+#: src/gui/SettingsMenu.vala:89
+msgid "https://github.com/febrezo/GraniteTemplate/master/doc/support/en/"
+msgstr "https://github.com/febrezo/GraniteTemplate/master/doc/support/es/"
+
+#: src/gui/WelcomeView.vala:30
+msgid "A sample application"
+msgstr "Una aplicación de ejemplo"
+
+#: src/gui/WelcomeView.vala:31
+msgid "Go to the main window"
+msgstr "Ir a la ventana principal"
+
+#: src/gui/WelcomeView.vala:31
+msgid "The standard behaviour of the application"
+msgstr "El comportamiento por defecto de la aplicación"
+
+#: src/gui/WelcomeView.vala:32
+msgid "Get support from online resources"
+msgstr "Consigue ayuda de recursos en línea"

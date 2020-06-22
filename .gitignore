@@ -1,0 +1,7 @@
+*pyc
+*~
+build*
+build-flatpak*
+flatpak*
+.flatpak-builder*
+repo*

@@ -19,12 +19,12 @@
 * Authored by: Félix Breo <felixbrezo@disroot.orgm>
 */
 
-namespace GraniteTemplate {
-    public class GraniteTemplateApp : Gtk.Application {
+namespace Facefy {
+    public class FacefyApp : Gtk.Application {
 
-        public GraniteTemplateApp () {
+        public FacefyApp () {
             Object (
-                application_id: "com.felixbrezo.GraniteTemplate",
+                application_id: "com.felixbrezo.Facefy",
                 flags: ApplicationFlags.FLAGS_NONE
             );
         }
@@ -35,7 +35,7 @@ namespace GraniteTemplate {
         }
 
         public static int main (string[] args) {
-            var app = new GraniteTemplateApp ();
+            var app = new FacefyApp ();
             return app.run (args);
         }
     }

@@ -1,0 +1,169 @@
+@startuml
+'skinparam classAttributeIconSize 0
+
+package AppWidgets {
+    class AboutDialog extends Gtk.AboutDialog {
+        Spawns the about information
+        --
+        +tranisient_for : Gtk.Window
+    }
+
+    class AuxiliarView extends Gtk.Frame {
+        The main view where everything is stored.
+        --
+        +window : Facefy.Window
+        +source_image_path : string
+        +source_image : AppWidgets.SourceImage
+        +extraction_view : AppWidgets.ExtractionView
+        +comparison_view : AppWidgets.ComparisonView
+        +AuxiliarView ()
+    }
+
+    class ExtractionView extends Gtk.Frame {
+        The view where the extracted information is shown
+        --
+        +parent : AppWidgets.AuxiliarView
+        +face_label : Gtk.Label
+        +target_image : Gtk.Image
+        +target_image_label : Gtk.Label
+        +face_avatar : Granite.Widgets.Avatar
+        +prev_face_btn : Gtk.Button
+        +next_face_btn : Gtk.Button
+        +start_comparison_btn : Gtk.Button
+        +ExtractionView ()
+        -get_previous_face_clicked ()
+        -get_next_face_clicked ()
+    }
+
+    class ComparisonView extends Gtk.Frame {
+        The view where comparisons are shown
+        --
+        +parent : AppWidgets.AuxiliarView
+        +ComparisonView ()
+        --
+        +parent : AppWidgets.AuxiliarView
+        +face_label : Gtk.Label
+        +face_avatar : Gtk.Image
+        +target_image_label : Gtk.Label
+        +comparison_avatar : Granite.Widgets.Avatar
+        +face_avatar : Granite.Widgets.Avatar
+        +prev_face_btn : Gtk.Button
+        +next_face_btn : Gtk.Button
+        +ExtractionView ()
+        -get_previous_face_clicked ()
+        -get_next_face_clicked ()
+        +initialize_faces ()
+    }
+
+    class HeaderBar extends Gtk.HeaderBar{
+        The definition of the header bar
+        --
+        +extract_faces_btn : Gtk.Button
+        +search_image_btn : Gtk.Button
+        +open_faces_btn : Gtk.Button
+        +settings_menu_btn : Gtk.Button
+        +settings_menu : AppWidgets.SettingsMenu
+    }
+
+    class SettingsMenu extends Gtk.Popover {
+        The definition of the pop up settings menu
+        --
+        +about_dialog : AppWidgets.AboutDialog
+        +on_help_clicked ()
+    }
+    
+    class PopulateDialog extends Granite.MessageDialog {
+        Shows the UI to extract faces.
+        --
+        +transient_for : Gtk.Window
+        +images_folder_path : string
+        +progress_bar : Gtk.ProgressBar
+        +start_button : Gtk.Button
+        +suggested_button : Gtk.Button
+        +state : AppUtils.TaskState
+        -image_file_paths : string[0..*]
+        -list_all_image_files ()
+        -async prepare_db_population ()
+    }
+    
+    class WelcomeView extends Granite.Widgets.Welcome {
+        Shows the welcome view
+    }
+}
+
+package AppUtils {
+    class PyfacesClient {
+        The class manager that encapsulates \nJSON RPC calls to 'pyfacesd'.
+        --
+        +rpc_host : string
+        +rpc_port : uint
+        +PyfacesClient ()
+        +extract_faces ()
+        +guess_face ()
+    }
+
+   class SourceImage {
+        The class that encapsulates the\nresponse of Extracted faces.
+        --
+        +copied_md5 : string
+        +copied_path : string
+        +extraction_date : string
+        +original_path : string
+        +faces : Face[0..*]
+        +SourceImage ()
+    }
+
+   class Face {
+        The class that encapsulates a Face.
+        --
+        +face_path : string
+        +original_path : string
+        +Face ()
+    }
+    
+   class Comparison {
+        The class that encapsulates the results of a Comparison.
+        --
+        +face_path : string
+        +similarity : double
+        +Comparison ()
+    }
+}
+
+package Facefy {
+    class Window extends Gtk.ApplicationWindow {
+        Class window.
+        --
+        -header_bar : AppWidgets.HeaderBar
+        -toast : Granite.Widgets.Toast
+        -overlay_panel : Gtk.Overlay
+        -auxiliar_view : AuxiliarView
+        -welcome_view : WelcomeView
+        +pyfaces_client : AppUtils.PyfacesClient
+        +Window ()
+        -on_search_image_clicked ()
+        -on_populate_db_clicked ()
+        -on_help_clicked ()
+        -count_loaded_faces ()
+        -show_toast ()
+        -on_menu_clicked ()
+        -calculate_content_encoding ()
+        
+    }
+}
+
+Face -- PyfacesClient : uses
+SourceImage -- PyfacesClient : uses
+HeaderBar *-- SettingsMenu : has >
+SettingsMenu *-- AboutDialog : spawns >
+AuxiliarView *-- ExtractionView : has >
+AuxiliarView *-- ComparisonView : has >
+AuxiliarView *-- SourceImage : has >
+AuxiliarView *- Face : 1..* > 
+Window *- PopulateDialog : spawns >
+Window *-- AuxiliarView : has >
+Window *-- WelcomeView : has >
+Window *-- HeaderBar : has >
+Window *-- PyfacesClient : has >
+@enduml
+

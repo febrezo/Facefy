@@ -16,7 +16,7 @@
 * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301 USA
 *
-* Authored by: Félix Breo <felixbrezo@disroot.orgm>
+* Authored by: Félix Brezo <felixbrezo@disroot.orgm>
 */
 
 namespace AppUtils {

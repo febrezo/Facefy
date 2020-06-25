@@ -33,22 +33,22 @@ namespace AppWidgets {
         construct {
             this.set_destroy_with_parent (true);
           	this.set_modal (true);
-            this.logo_icon_name = "computer-laptop";
+            this.logo_icon_name = "com.felixbrezo.Facefy";
 
-          	this.artists = null;
-          	this.authors = {"Félix Brezo (felixbrezo@disroot.org)"};
-          	this.documenters = {"Félix Brezo (felixbrezo@disroot.org)"};
-          	this.translator_credits = _("Félix Brezo (felixbrezo@disroot.org)");
+          	this.artists = {"Félix Brezo (@febrezo)"};
+          	this.authors = {"Félix Brezo (@febrezo)"};
+          	this.documenters = {"Félix Brezo (@febrezo)"};
+          	this.translator_credits = _("Félix Brezo (@febrezo)");  // This is a string
 
-          	this.program_name = _("GraniteTemplate");
-          	this.comments = _("Just another template");
+          	this.program_name = _("com.felixbrezo.Facefy");
+          	this.comments = _("Face recognition for everyone");
           	this.copyright = _("Copyright © 2020 Félix Brezo");
           	this.version = _("1.0");
 
           	this.license = "GPLv3.0+ (https://www.gnu.org/licenses/gpl-3.0.txt)";
           	this.wrap_license = true;
 
-          	this.website = _("https://github.com/febrezo/GraniteTemplate");
+          	this.website = _("https://github.com/febrezo/Facefy");
           	this.website_label = _("Website");
 
             this.response.connect ((response_id) => {

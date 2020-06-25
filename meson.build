@@ -1,5 +1,5 @@
 # Project name and programming language
-project('com.felixbrezo.GraniteTemplate', 'vala', 'c')
+project('com.felixbrezo.Facefy', 'vala', 'c')
 
 # Include the translations module
 i18n = import('i18n')
@@ -18,7 +18,7 @@ subdir('po')
 # Install the icon
 # TODO: remove in favour of subdir for easier maintenance
 install_data(
-    join_paths('data', meson.project_name() + '.svg'),
+    join_paths('data', meson.project_name() + '.png'),
     install_dir: join_paths(get_option('datadir'), 'icons')
 )
 
@@ -58,19 +58,28 @@ executable(
   'src/Application.vala',
   'src/Window.vala',
   'src/core/Clipboard.vala',
-  'src/core/SomethingHelpful.vala',
+  'src/core/Comparison.vala',
+  'src/core/Face.vala',
+  'src/core/PyfacesClient.vala',
+  'src/core/SourceImage.vala',
+  'src/core/TaskState.vala',
+  'src/core/Utils.vala',
   'src/gui/AboutDialog.vala',
+  'src/gui/ComparisonView.vala',
+  'src/gui/ExtractionView.vala',
+  'src/gui/FaceInfoPane.vala',
   'src/gui/HeaderBar.vala',
   'src/gui/MainView.vala',
-  'src/gui/SampleDialog.vala',
+  'src/gui/PopulateDialog.vala',
   'src/gui/SettingsMenu.vala',
   'src/gui/WelcomeView.vala',
   dependencies: [
     dependency('granite'),
     meson.get_compiler('vala').find_library('posix'),
-#    dependency('json-glib-1.0'),
-#    dependency('gee-0.8'),
-#    dependency('libsoup-2.4')
+    dependency('json-glib-1.0'),
+    dependency('vte-2.91'),
+    dependency('gee-0.8'),
+    dependency('libsoup-2.4')
   ],
   install: true
 )

@@ -1,0 +1,11 @@
+[Desktop Entry]
+
+Name=Facefy
+GenericName=Face recognition for everyone
+Comment=A simple Vala tool to run Face Recognition
+Categories=Utility;Graphics;Education;
+Exec=com.felixbrezo.Facefy
+Icon=com.felixbrezo.Facefy
+Terminal=false
+Type=Application
+Keywords=Face;Recognition;OSINT;Imagery;

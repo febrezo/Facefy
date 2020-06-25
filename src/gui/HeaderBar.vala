@@ -24,16 +24,15 @@ using AppWidgets;
 
 namespace AppWidgets {
     public class HeaderBar : Gtk.HeaderBar {
-        public Gtk.Button new_btn;
-        public Gtk.Button speak_btn;
-        public Gtk.Button add_operation_btn;
+        public Gtk.Button search_image_btn;
+        public Gtk.Button populate_db_btn;
         public Gtk.Button settings_menu_btn;
         public SettingsMenu menu;
 
         public HeaderBar () {
             this.show_close_button = true;
-            this.title = _("GraniteTemplate");
-            //this.subtitle = _();
+            this.title = _("Facefy");
+            this.subtitle = _("A GUI for playing with face recognition");
 
             // Set Menu
             // --------
@@ -50,26 +49,22 @@ namespace AppWidgets {
 
             // Add menu buttons
             // ----------------
-
-            // New button
-            new_btn = new Gtk.Button.from_icon_name ("document-new", Gtk.IconSize.LARGE_TOOLBAR);
-            new_btn.tooltip_text = _("Go to main window");
-            this.pack_start (new_btn);
-
-            // Speak button
-            speak_btn = new Gtk.Button.from_icon_name ("audio-speakers", Gtk.IconSize.LARGE_TOOLBAR);
-            speak_btn.tooltip_text = _("Speak something");
-            this.pack_start (speak_btn);
+            // Search image button
+            search_image_btn = new Gtk.Button.from_icon_name ("multimedia-photo-manager", Gtk.IconSize.LARGE_TOOLBAR);
+            search_image_btn.tooltip_text = _("Search face");
+            this.pack_start (search_image_btn);
+            
+            // Populate DB button
+            populate_db_btn = new Gtk.Button.from_icon_name ("document-import", Gtk.IconSize.LARGE_TOOLBAR);
+            populate_db_btn.tooltip_text = _("Populate faces database");
+            this.pack_start (populate_db_btn);
 
             // Menu button
             settings_menu_btn = new Gtk.Button.from_icon_name ("open-menu-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
             settings_menu_btn.tooltip_text = _("Open menu");
             this.pack_end (settings_menu_btn);
 
-            // Add operation button
-            add_operation_btn = new Gtk.Button.from_icon_name ("event-new", Gtk.IconSize.LARGE_TOOLBAR);
-            add_operation_btn.tooltip_text = _("Add new operation");
-            this.pack_end (add_operation_btn);
+            this.pack_end (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
         }
     }
 }

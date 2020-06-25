@@ -1,0 +1,73 @@
+{
+    "app-id" : "com.felixbrezo.Facefy",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "3.36",
+    "base" : "io.felixbrezo.BaseApp",
+    "base-version" : "juno-19.08",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "com.felixbrezo.Facefy",
+    "finish-args" : [
+        "--share=network",
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--filesystem=home",
+        "--talk-name=org.gnome.SessionManager",
+        "--metadata=X-DConf=migrate-path=com/felixbrezo/Facefy/",
+    		"--socket=pulseaudio",
+        "--device=dri"
+    ],
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/share/aclocal",
+        "/share/info",
+        "/share/man"
+    ],
+    "modules" : [
+        {
+            "name": "cpython3",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tar.xz",
+                    "sha256": "f434053ba1b5c8a5cc597e966ead3c5143012af827fd3f0697d21450bb8d87a6"
+                }
+            ]
+        },
+        {
+            "name": "cpython2",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz",
+		    "sha256": "b62c0e7937551d0cc02b8fd5cb0f544f9405bafc9a54d3808ed4594812edef43"
+                }
+            ]
+        },
+        {
+            "name": "python-dependencies",
+            "buildsystem": "simple",
+            "build-options": {
+              "build-args": [
+                "--share=network"
+              ]
+            },
+            "build-commands": [
+                "/app/bin/pip3.6 install dlib --prefix=/app --verbose",
+                "/app/bin/pip3.6 install pyfaces --prefix=/app --verbose --upgrade"
+            ]
+        },
+        {
+            "name" : "com.felixbrezo.Facefy",
+            "builddir" : true,
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "dir",
+                    "path" : "/home/felix/Documentos/Proyectos/Facefy"
+                }
+            ]
+        }
+    ]
+}

@@ -1,13 +1,13 @@
-# English translations for com.felixbrezo.GraniteTemplate package.
-# Copyright (C) 2020 THE com.felixbrezo.GraniteTemplate'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the com.felixbrezo.GraniteTemplate package.
+# English translations for com.felixbrezo.Facefy package.
+# Copyright (C) 2020 THE com.felixbrezo.Facefy'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.felixbrezo.Facefy package.
 # Automatically generated, 2020.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: com.felixbrezo.GraniteTemplate\n"
+"Project-Id-Version: com.felixbrezo.Facefy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-23 09:20+0200\n"
+"POT-Creation-Date: 2020-08-18 18:54+0200\n"
 "PO-Revision-Date: 2020-06-22 21:40+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,54 +17,82 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: data/com.felixbrezo.GraniteTemplate.desktop.in:4
-#: data/com.felixbrezo.GraniteTemplate.appdata.xml.in:6 src/Window.vala:50
-#: src/gui/AboutDialog.vala:43 src/gui/HeaderBar.vala:35
-#: src/gui/WelcomeView.vala:29
-msgid "GraniteTemplate"
-msgstr "GraniteTemplate"
-
-#: data/com.felixbrezo.GraniteTemplate.desktop.in:5
-#: data/com.felixbrezo.GraniteTemplate.appdata.xml.in:7
-#: src/gui/AboutDialog.vala:44
-msgid "Just another template"
-msgstr "Just another template"
-
-#: data/com.felixbrezo.GraniteTemplate.desktop.in:6
-msgid "A template for developing new Vala applications"
-msgstr "A template for developing new Vala applications"
-
-#: data/com.felixbrezo.GraniteTemplate.desktop.in:10
-msgid "computer-laptop"
+#: data/com.felixbrezo.Facefy.desktop.in:4
+#: data/com.felixbrezo.Facefy.appdata.xml.in:6 src/Window.vala:90
+#: src/gui/HeaderBar.vala:34 src/gui/WelcomeView.vala:29
+msgid "Facefy"
 msgstr ""
 
-#: data/com.felixbrezo.GraniteTemplate.desktop.in:12
-#, fuzzy
-msgid "Development;Personal;"
-msgstr "Assets;Personal"
-
-#: data/com.felixbrezo.GraniteTemplate.appdata.xml.in:9
-msgid "A template for developing new Vala applications."
-msgstr "A template for developing new Vala applications."
-
-#: src/Window.vala:100
-msgid "english"
+#: data/com.felixbrezo.Facefy.desktop.in:5 src/gui/AboutDialog.vala:44
+#: src/gui/WelcomeView.vala:30
+msgid "Face recognition for everyone"
 msgstr ""
 
-#: src/Window.vala:100
-msgid "Hello hackers! I am a computer!"
+#: data/com.felixbrezo.Facefy.desktop.in:6
+#: data/com.felixbrezo.Facefy.appdata.xml.in:7
+msgid "A simple Vala tool to run Face Recognition"
 msgstr ""
 
-#: src/Window.vala:111
-msgid "Nothing done because something wrong happened"
-msgstr "Nothing done because something wrong happened"
+#: data/com.felixbrezo.Facefy.desktop.in:9 src/gui/AboutDialog.vala:43
+msgid "com.felixbrezo.Facefy"
+msgstr ""
 
-#: src/Window.vala:119
-msgid "https://github.com/febrezo/valoro/master/doc/support/en/"
-msgstr "https://github.com/febrezo/valoro/master/doc/support/en/"
+#: data/com.felixbrezo.Facefy.desktop.in:12
+msgid "Face;Recognition;OSINT;Imagery;"
+msgstr ""
+
+#: data/com.felixbrezo.Facefy.appdata.xml.in:9
+msgid ""
+"Facefy is an application that wraps the capabilities of well-known "
+"technologies like Dlib and face_recognition using a custom JSON RPC daemon "
+"created ad-hoc in Python 3.6+ (named `pyfaces`) and a GTK-based desktop "
+"environment."
+msgstr ""
+
+#: src/Window.vala:154
+msgid "Open image file"
+msgstr ""
+
+#: src/Window.vala:157 src/Window.vala:211
+msgid "Cancel"
+msgstr ""
+
+#: src/Window.vala:159 src/Window.vala:213
+msgid "Open"
+msgstr ""
+
+#: src/Window.vala:164
+msgid "Images"
+msgstr ""
+
+#: src/Window.vala:197
+#, c-format
+msgid "Image loaded: %s"
+msgstr ""
+
+#: src/Window.vala:208
+msgid "Open images folder"
+msgstr ""
+
+#: src/Window.vala:222
+msgid "No folder selected."
+msgstr ""
+
+#: src/Window.vala:233
+msgid "Database population ended successfully."
+msgstr ""
+
+#: src/Window.vala:236
+msgid "Database population manually stopped."
+msgstr ""
+
+#: src/Window.vala:244 src/gui/SettingsMenu.vala:96
+#: src/gui/SettingsMenu.vala:104
+msgid "https://github.com/febrezo/Facefy/master/doc/support/en/"
+msgstr ""
 
 #: src/gui/AboutDialog.vala:41
-msgid "Félix Brezo (felixbrezo@disroot.org)"
+msgid "Félix Brezo (@febrezo)"
 msgstr ""
 
 #: src/gui/AboutDialog.vala:45
@@ -76,100 +104,132 @@ msgid "1.0"
 msgstr ""
 
 #: src/gui/AboutDialog.vala:51
-#, fuzzy
-msgid "https://github.com/febrezo/GraniteTemplate"
-msgstr "https://github.com/febrezo/GraniteTemplate/master/doc/support/en/"
+msgid "https://github.com/febrezo/Facefy"
+msgstr ""
 
 #: src/gui/AboutDialog.vala:52
 msgid "Website"
 msgstr ""
 
-#: src/gui/HeaderBar.vala:56
-msgid "Go to main window"
-msgstr "Go to main window"
-
-#: src/gui/HeaderBar.vala:61
-msgid "Speak something"
+#: src/gui/ComparisonView.vala:57
+msgid "Performing calculations…"
 msgstr ""
 
-#: src/gui/HeaderBar.vala:66
+#: src/gui/ComparisonView.vala:60
+msgid "Similarity: N/A"
+msgstr ""
+
+#: src/gui/ComparisonView.vala:62
+msgid "Target face"
+msgstr ""
+
+#: src/gui/ComparisonView.vala:64
+msgid "Candidates"
+msgstr ""
+
+#: src/gui/ExtractionView.vala:47
+msgid "Original image"
+msgstr ""
+
+#: src/gui/ExtractionView.vala:49
+msgid "Extracted faces"
+msgstr ""
+
+#: src/gui/ExtractionView.vala:70
+msgid "Search face against the known DB"
+msgstr ""
+
+#: src/gui/FaceInfoPane.vala:46
+msgid "Details"
+msgstr ""
+
+#: src/gui/FaceInfoPane.vala:50
+msgid "Original path: "
+msgstr ""
+
+#: src/gui/FaceInfoPane.vala:56
+msgid "MD5: "
+msgstr ""
+
+#: src/gui/HeaderBar.vala:35
+msgid "A GUI for playing with face recognition"
+msgstr ""
+
+#: src/gui/HeaderBar.vala:54
+msgid "Search face"
+msgstr ""
+
+#: src/gui/HeaderBar.vala:59 src/gui/PopulateDialog.vala:36
+msgid "Populate faces database"
+msgstr ""
+
+#: src/gui/HeaderBar.vala:64
 msgid "Open menu"
-msgstr "Open menu"
-
-#: src/gui/HeaderBar.vala:71
-msgid "Add new operation"
-msgstr "Add new operation"
-
-#: src/gui/MainView.vala:25
-msgid "Some sample text"
-msgstr "Some sample text"
-
-#: src/gui/SampleDialog.vala:30
-msgid "Sample dialog"
-msgstr "Sample dialog"
-
-#: src/gui/SampleDialog.vala:31
-msgid "Just showing some text"
-msgstr "Just showing some text"
-
-#: src/gui/SampleDialog.vala:41
-msgid "Copy to clipboard"
-msgstr "Copy to clipboard"
-
-#: src/gui/SampleDialog.vala:46
-msgid "A sample Loremp ipsum text"
-msgstr "A sample Loremp ipsum text"
-
-#: src/gui/SampleDialog.vala:50
-msgid ""
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in ligula "
-"sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis "
-"metus magna. Curabitur id metus volutpat risus sodales pretium. Vestibulum "
-"ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; "
-"Morbi rutrum dictum egestas. Mauris semper suscipit massa vitae facilisis. "
 msgstr ""
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in ligula "
-"sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis "
-"metus magna. Curabitur id metus volutpat risus sodales pretium. Vestibulum "
-"ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; "
-"Morbi rutrum dictum egestas. Mauris semper suscipit massa vitae facilisis. "
+
+#: src/gui/MainView.vala:65
+msgid "Face Extraction"
+msgstr ""
+
+#: src/gui/MainView.vala:70
+msgid "Comparisons"
+msgstr ""
+
+#: src/gui/PopulateDialog.vala:37
+msgid ""
+"Images in the folder will be preprocessed for extracting face encodings…"
+msgstr ""
+
+#: src/gui/PopulateDialog.vala:52
+msgid "Start populating"
+msgstr ""
+
+#: src/gui/PopulateDialog.vala:56
+msgid "Accept"
+msgstr ""
 
 #: src/gui/SettingsMenu.vala:35
 msgid "Theme"
-msgstr "Theme"
+msgstr ""
 
 #: src/gui/SettingsMenu.vala:41
 msgid "Light background"
-msgstr "Light background"
+msgstr ""
 
 #: src/gui/SettingsMenu.vala:42
 msgid "Dark background"
-msgstr "Dark background"
+msgstr ""
 
-#: src/gui/SettingsMenu.vala:51 src/gui/WelcomeView.vala:32
+#: src/gui/SettingsMenu.vala:50
+msgid "Open data folder"
+msgstr ""
+
+#: src/gui/SettingsMenu.vala:57 src/gui/WelcomeView.vala:33
 msgid "Looking for help?"
-msgstr "Looking for help?"
+msgstr ""
 
-#: src/gui/SettingsMenu.vala:57
+#: src/gui/SettingsMenu.vala:63
 msgid "About…"
 msgstr ""
 
-#: src/gui/SettingsMenu.vala:89
-msgid "https://github.com/febrezo/GraniteTemplate/master/doc/support/en/"
-msgstr "https://github.com/febrezo/GraniteTemplate/master/doc/support/en/"
-
-#: src/gui/WelcomeView.vala:30
-msgid "A sample application"
-msgstr "A sample application"
+#: src/gui/WelcomeView.vala:31
+msgid "Extract faces from a file"
+msgstr ""
 
 #: src/gui/WelcomeView.vala:31
-msgid "Go to the main window"
-msgstr "Go to the main window"
-
-#: src/gui/WelcomeView.vala:31
-msgid "The standard behaviour of the application"
-msgstr "The standard behaviour of the application"
+msgid "Extract faces from a given photo stored locally"
+msgstr ""
 
 #: src/gui/WelcomeView.vala:32
+msgid "Bulk import from folder"
+msgstr ""
+
+#: src/gui/WelcomeView.vala:32
+msgid ""
+"Choose a local folder in your system to populate your database with faces "
+"found in any image file found"
+msgstr ""
+
+#: src/gui/WelcomeView.vala:33
 msgid "Get support from online resources"
-msgstr "Get support from online resources"
+msgstr ""

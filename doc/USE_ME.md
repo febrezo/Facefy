@@ -4,8 +4,8 @@ This repo is thought to be used as a template. It can be cloned easily and teste
 First of all, let's test it using `git clone`.
 
 ```
-git clone https://github.com/febrezo/GraniteTemplate.git
-cd GraniteTemplate
+git clone https://github.com/febrezo/Facefy.git
+cd Facefy
 ```
 
 ## Manual installation
@@ -33,25 +33,25 @@ The `po` folder contains the information needed to localize the application:
 Once understood, it's time to localize the application by building the templates for each language. Inside the `build` folder, run this command to build the empty internationalization template:
 
 ```
-ninja com.felixbrezo.GraniteTemplate-pot
+ninja com.felixbrezo.Facefy-pot
 ```
 
 And this to update a new `.po` file within the previously created template for each language specified in the `LINGUAS` file:
 
 ```
-ninja com.felixbrezo.GraniteTemplate-update-po
+ninja com.felixbrezo.Facefy-update-po
 ```
 
 It's now yout turn to explore the contents and update the translations if you want it. For example, this is an example of two translated strings from the `es.po` file.
 
 ```
 …
-#: data/com.felixbrezo.GraniteTemplate.desktop.in:5
-#: data/com.felixbrezo.GraniteTemplate.appdata.xml.in:7
+#: data/com.felixbrezo.Facefy.desktop.in:5
+#: data/com.felixbrezo.Facefy.appdata.xml.in:7
 msgid "Just another template"
 msgstr "Simplemente otra plantilla"
 
-#: data/com.felixbrezo.GraniteTemplate.desktop.in:6
+#: data/com.felixbrezo.Facefy.desktop.in:6
 msgid "A template for developing new Vala applications"
 msgstr "Una plantilla para desarrollar nuevas aplicaciones en Vala"
 …
@@ -69,7 +69,7 @@ To look like this:
 "Content-Type: text/plain; charset=UTF-8\n"
 ```
 
-Otherwise, you may find errors when running the `ninja com.felixbrezo.GraniteTemplate-update-po` command.
+Otherwise, you may find errors when running the `ninja com.felixbrezo.Facefy-update-po` command.
 
 
 ### Provide additional metadata for the launcher: the `data` folder
@@ -84,7 +84,7 @@ Once understood, it's time to build the application from the `build` folder and 
 
 ```
 ninja
-./com.felixbrezo.GraniteTemplate
+./com.felixbrezo.Facefy
 ```
 
 If you want to install it, try:
@@ -96,7 +96,7 @@ sudo ninja install
 The application will be ready to use in your system from your applications menu thanks to `desktop` file provided under the `data` folder or even using the terminal (note the absence of the `./` since the application is now installed):
 
 ```
-com.felixbrezo.GraniteTemplate
+com.felixbrezo.Facefy
 ```
 
 ### Automatic name customization: the `bin` folder
@@ -169,10 +169,63 @@ First of all you will need to fix the Flatpak dependencies:
 sudo apt install flatpak flatpak-builder
 ```
 
-This repository uses a BaseApp from elementary OS which needs to be downloaded. If this is your first time using Flatpak, you first need to add the Marketplace (Flathub in this case) and then install from there the appropiate base app.
+This repository uses some base applications from elementary OS which we need to download. If this is your first time using Flatpak, you first need to add the Marketplace (Flathub in this case) and then install from there the appropiate base app.
+
+To add the remote repository of Flathub, you can do as follows:
 
 ```
-TODO.
+$ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+```
+
+Afterwards, you may need to add the two base applications: `org.gnome.Sdk` and `io.elementary.BaseApp`.
+
+```
+$ flatpak install org.gnome.Sdk
+Looking for matches…
+Remotes found with refs similar to ‘org.gnome.Sdk’:
+
+   1) ‘flathub’ (system)
+   2) ‘flathub’ (user)
+
+Which do you want to use (0 to abort)? [0-2]: 2
+Similar refs found for ‘org.gnome.Sdk’ in remote ‘flathub’ (user):
+
+   1) runtime/org.gnome.Sdk/x86_64/3.36
+   2) runtime/org.gnome.Sdk/x86_64/3.34
+   3) runtime/org.gnome.Sdk/x86_64/3.32
+   4) runtime/org.gnome.Sdk/x86_64/3.30
+   5) runtime/org.gnome.Sdk/x86_64/3.26
+   6) runtime/org.gnome.Sdk/x86_64/3.24
+   7) runtime/org.gnome.Sdk/x86_64/3.28
+
+Which do you want to use (0 to abort)? [0-7]: 1
+
+
+        ID                            Branch          Op         Remote          Descarga
+ 1. [✓] org.gnome.Sdk.Locale          3.36            i          flathub          21,3 kB / 327,0 MB
+ 2. [✓] org.gnome.Sdk                 3.36            i          flathub         409,6 MB / 671,6 MB
+
+Installation complete.
+$ flatpak install io.elementary.BaseApp
+Looking for matches…
+Remotes found with refs similar to ‘io.elementary.BaseApp’:
+
+   1) ‘flathub’ (system)
+   2) ‘flathub’ (user)
+
+Which do you want to use (0 to abort)? [0-2]: 2
+Similar refs found for ‘io.elementary.BaseApp’ in remote ‘flathub’ (user):
+
+   1) app/io.elementary.BaseApp/x86_64/juno
+   2) app/io.elementary.BaseApp/x86_64/juno-19.08
+
+Which do you want to use (0 to abort)? [0-2]: 2
+
+
+        ID                              Branch              Op          Remote           Descarga
+ 1. [✓] io.elementary.BaseApp           juno-19.08          i           flathub          9,1 MB / 20,1 MB
+
+Installation complete.
 ```
 
 ### Building the Flatpak
@@ -182,13 +235,13 @@ Note that the `.json` file in the repository points to a `git` repository which 
 ```
 …
 {
-    "name" : "com.felixbrezo.GraniteTemplate",
+    "name" : "com.felixbrezo.Facefy",
     "builddir" : true,
     "buildsystem" : "meson",
     "sources" : [
         {
             "type" : "git",
-            "path" : "https://github.com/febrezo/GraniteTemplate"
+            "path" : "https://github.com/febrezo/Facefy"
         }
     ]
 }
@@ -200,31 +253,31 @@ You may opt to something like this:
 ```
 …
 {
-    "name" : "com.felixbrezo.GraniteTemplate",
+    "name" : "com.felixbrezo.Facefy",
     "builddir" : true,
     "buildsystem" : "meson",
     "sources" : [
         {
             "type" : "git",
-            "path" : "/home/felix/Proyectos/GraniteTemplate"
+            "path" : "/home/felix/Proyectos/Facefy"
         }
     ]
 }
 …
 ```
 
-However, note that this approach uses the `git` manifest source. This is important because it will match against the last commit performed (or, if provided in an optional `commit` parameter, to that specific commit). As this is sometimes messy since you need to add and commit the changes (and I tipically forget that when testing), I prefer usin this:
+However, note that this approach uses the `git` manifest source. This is important because it will match against the last commit performed (or, if provided in an optional `commit` parameter, to that specific commit). As this is sometimes messy since you need to add and commit the changes (and I tipically forget that when testing), I prefer to use this:
 
 ```
 …
 {
-    "name" : "com.felixbrezo.GraniteTemplate",
+    "name" : "com.felixbrezo.Facefy",
     "builddir" : true,
     "buildsystem" : "meson",
     "sources" : [
         {
-            "type" : "git",
-            "path" : "/home/felix/Proyectos/GraniteTemplate"
+            "type" : "dir",
+            "path" : "/home/felix/Proyectos/Facefy"
         }
     ]
 }
@@ -234,12 +287,12 @@ However, note that this approach uses the `git` manifest source. This is importa
 Once defined, you can now build the Flatpak:
 
 ```
-flatpak-builder build-dir com.felixbrezo.GraniteTemplate.json --force-clean
+flatpak-builder build-dir com.felixbrezo.Facefy.json --force-clean
 ```
 
 Or build and install for the current user (which does not require root permissions):
 
 ```
-flatpak-builder build-dir com.felixbrezo.GraniteTemplate.json --force-clean --install --user
-flatpak run com.felixbrezo.GraniteTemplate
+flatpak-builder build-dir com.felixbrezo.Facefy.json --force-clean --install --user
+flatpak run com.felixbrezo.Facefy
 ```

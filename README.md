@@ -2,44 +2,38 @@
 
 This is a template repository to ease the process of creating GUI with Vala based on GTK and Granite.
 
-## Manually install the Facefy
+![Sample page](data/welcome.png)
 
-You'll need the following dependencies:
+## Installation
 
-* granite >= 0.5
-* meson >= 0.43.0
-* valac
+The application is stored in my own Flatpak Repository but has some dependencies linked to the Gnome and Elementary environment which can be downloaded from Flathub.
 
-Then, you SHOULD clone the repository:
+Thus, make sure that
 
-```
-git clone https://github.com/febrezo/Facefy.git
-cd Facefy
-```
-
-Run `meson build` to configure the build environment. Change to the build directory and run `ninja test` to build and run automated tests.
+Then, add the two remotes: the `flathub` one to download the dependencies from and the `febrehub` which stores the application itself. This can be done using the following commands. 
 
 ```
-meson build --prefix=/usr
-cd build
-ninja test
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-exists febrehub https://felixbrezo.com/febrehub.flatpakrepo
 ```
 
-The application found under the build folder can now be launched:
+The aforementioned commands will require `root` permissions to add the remotes, but they can also be installed for the current system using `--user`.
+
+Once added the repos, use the following to install:
 
 ```
-./com.felixbrezo.Facefy
+flatpak install febrehub com.felixbrezo.Facefy
 ```
 
-To optionally install, use `ninja install`, then execute with `com.felixbrezo.Facefy`.
+## Run it
+
+And visit your applications menu or type the following to run:
 
 ```
-ninja install
-com.felixbrezo.Facefy
+flatpak run com.felixbrezo.Facefy 
 ```
 
-Tou SHOULD be able to explore the capabilities of the default application.
+## Hacking
 
-## Other dependencies
+For working with the application locally, check the [`HACKING.md`](doc/HACKING.MD) file.
 
-This tool requires Python's `face_recognition` library to be installed in the system. You can find more information [here](https://github.com/ageitgey/face_recognition).

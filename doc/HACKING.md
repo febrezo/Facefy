@@ -1,6 +1,23 @@
-# How to use this repository for deploying your application
+# Hacking the application
 
-This repo is thought to be used as a template. It can be cloned easily and tested using the information in the [`README.md`](../README.md) file.
+This file is intended to help hackers on building new features.
+
+## Required dependencies
+
+You'll need the following dependencies:
+
+* granite >= 0.5
+* meson >= 0.43.0
+* valac
+
+## Class diagrams
+
+![Class diagram](./class_diagram.png)
+
+## Manual builds
+
+## Towards building the application manually: the `build` folder
+
 First of all, let's test it using `git clone`.
 
 ```
@@ -8,9 +25,6 @@ git clone https://github.com/febrezo/Facefy.git
 cd Facefy
 ```
 
-## Manual installation
-
-### Towards building the application manually: the `build` folder
 
 The `build` folder is not there by default but it is the place where things will be compiled. When testing our app we will be working many times from this path.
 

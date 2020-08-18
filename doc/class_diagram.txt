@@ -8,79 +8,106 @@ package AppWidgets {
         +tranisient_for : Gtk.Window
     }
 
-    class AuxiliarView extends Gtk.Frame {
-        The main view where everything is stored.
+    class ComparisonView extends Gtk.Overlay {
+        The view where comparisons are shown
         --
-        +window : Facefy.Window
-        +source_image_path : string
-        +source_image : AppWidgets.SourceImage
-        +extraction_view : AppWidgets.ExtractionView
-        +comparison_view : AppWidgets.ComparisonView
-        +AuxiliarView ()
+        -current_face_index : int
+        -faces : Comparison[0..*]
+        -stack_grid : Gtk.Grid
+        +comparison_avatar : Granite.Widgets.Avatar
+        +comparison_face_pane : AppUtils.FaceInfoPane
+        +comparisons_label : Gtk.Label
+        +face_avatar : Granite.Widgets.Avatar
+        +face_label : Gtk.Label
+        +overlay_bar : Granite.Widgets.OverlayBar
+        +next_face_btn : Gtk.Button
+        +parent : AppWidgets.MainView
+        +prev_face_btn : Gtk.Button
+        +result_label : Gtk.Label
+        +target_face_pane : AppUtils.FaceInfoPane
+        +target_image : Gtk.Image
+        +target_image_label : Gtk.Label
+        +view_original_btn : Gtk.Button
+        -get_next_face_clicked ()
+        -get_previous_face_clicked ()
+        -update_comparison_face ()
+        +ComparisonView ()
+        +populate_faces ()
+        +set_target_face ()
     }
 
-    class ExtractionView extends Gtk.Frame {
+
+    class ExtractionView extends Gtk.Overlay {
         The view where the extracted information is shown
         --
-        +parent : AppWidgets.AuxiliarView
+        +parent : AppWidgets.MainView
         +face_label : Gtk.Label
         +target_image : Gtk.Image
         +target_image_label : Gtk.Label
+        +target_image_path : string
         +face_avatar : Granite.Widgets.Avatar
         +prev_face_btn : Gtk.Button
         +next_face_btn : Gtk.Button
         +start_comparison_btn : Gtk.Button
         +ExtractionView ()
-        -get_previous_face_clicked ()
         -get_next_face_clicked ()
+        -get_previous_face_clicked ()
     }
 
-    class ComparisonView extends Gtk.Frame {
-        The view where comparisons are shown
+
+    class FaceInfoPane extends Gtk.Grid{
+        The definition of the header bar
         --
-        +parent : AppWidgets.AuxiliarView
-        +ComparisonView ()
-        --
-        +parent : AppWidgets.AuxiliarView
-        +face_label : Gtk.Label
-        +face_avatar : Gtk.Image
-        +target_image_label : Gtk.Label
-        +comparison_avatar : Granite.Widgets.Avatar
-        +face_avatar : Granite.Widgets.Avatar
-        +prev_face_btn : Gtk.Button
-        +next_face_btn : Gtk.Button
-        +ExtractionView ()
-        -get_previous_face_clicked ()
-        -get_next_face_clicked ()
-        +initialize_faces ()
+        +face : AppUtils.Face
+        +FaceInfoPane ()
     }
+
 
     class HeaderBar extends Gtk.HeaderBar{
         The definition of the header bar
         --
-        +extract_faces_btn : Gtk.Button
         +search_image_btn : Gtk.Button
-        +open_faces_btn : Gtk.Button
+        +populate_db_btn : Gtk.Button
         +settings_menu_btn : Gtk.Button
-        +settings_menu : AppWidgets.SettingsMenu
+        +menu : AppWidgets.SettingsMenu
+        +HeaderBar ()
     }
+
+    class MainView extends Gtk.Frame {
+        The main view where everything is stored.
+        --
+        +comparison_view : AppWidgets.ComparisonView
+        +comparisons : AppUtils.Comparison[0..*]
+        +extraction_view : AppWidgets.ExtractionView
+        +source_image : AppWidgets.SourceImage
+        +source_image_path : string
+        +stack : Gtk.Stack
+        +window : Facefy.Window
+        +MainView ()
+        +start_extraction ()
+        +start_comparison_clicked ()
+    }
+
 
     class SettingsMenu extends Gtk.Popover {
         The definition of the pop up settings menu
         --
         +about_dialog : AppWidgets.AboutDialog
-        +on_help_clicked ()
+        +view_data_folder_item : Gtk.ModelButton
+        -on_help_clicked ()
+        -on_view_data_folder_clicked ()
     }
     
     class PopulateDialog extends Granite.MessageDialog {
-        Shows the UI to extract faces.
+        Shows the UI to extract faces from a folder.
         --
+        -start_button : Gtk.Button
+        -suggested_button : Gtk.Button
         +transient_for : Gtk.Window
         +images_folder_path : string
         +progress_bar : Gtk.ProgressBar
-        +start_button : Gtk.Button
-        +suggested_button : Gtk.Button
         +state : AppUtils.TaskState
+        +window : Facefy.Window
         -image_file_paths : string[0..*]
         -list_all_image_files ()
         -async prepare_db_population ()
@@ -134,11 +161,12 @@ package Facefy {
     class Window extends Gtk.ApplicationWindow {
         Class window.
         --
-        -header_bar : AppWidgets.HeaderBar
         -toast : Granite.Widgets.Toast
         -overlay_panel : Gtk.Overlay
-        -auxiliar_view : AuxiliarView
+        -main_grid : Gtk.Grid
+        -main_view : MainView
         -welcome_view : WelcomeView
+        +header_bar : AppWidgets.HeaderBar
         +pyfaces_client : AppUtils.PyfacesClient
         +Window ()
         -on_search_image_clicked ()
@@ -156,12 +184,15 @@ Face -- PyfacesClient : uses
 SourceImage -- PyfacesClient : uses
 HeaderBar *-- SettingsMenu : has >
 SettingsMenu *-- AboutDialog : spawns >
-AuxiliarView *-- ExtractionView : has >
-AuxiliarView *-- ComparisonView : has >
-AuxiliarView *-- SourceImage : has >
-AuxiliarView *- Face : 1..* > 
+MainView *-- ExtractionView : has >
+MainView *-- ComparisonView : has >
+MainView *-- SourceImage : has >
+MainView *- Face : 1..* >
+FaceInfoPane *-- Face : has >
+ComparisonView *-- FaceInfoPane : has >
+ComparisonView *- Comparison :  1..* >  
 Window *- PopulateDialog : spawns >
-Window *-- AuxiliarView : has >
+Window *-- MainView : has >
 Window *-- WelcomeView : has >
 Window *-- HeaderBar : has >
 Window *-- PyfacesClient : has >

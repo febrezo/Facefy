@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.felixbrezo.Facefy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-18 18:54+0200\n"
+"POT-Creation-Date: 2020-08-18 23:12+0200\n"
 "PO-Revision-Date: 2020-06-22 21:40+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -131,6 +131,16 @@ msgstr "Cara objectiu"
 msgid "Candidates"
 msgstr "Candidats"
 
+#: src/gui/ComparisonView.vala:183
+#, c-format
+msgid "Similarity: %f"
+msgstr "Semblança:: %f"
+
+#: src/gui/ComparisonView.vala:193
+#, c-format
+msgid "Candidato: %i/%i"
+msgstr "Candidato: %i/%i"
+
 #: src/gui/ExtractionView.vala:47
 msgid "Original image"
 msgstr "Imatge original"
@@ -178,6 +188,14 @@ msgstr "Extracció de caras"
 #: src/gui/MainView.vala:70
 msgid "Comparisons"
 msgstr "Comparacions"
+
+#: src/gui/MainView.vala:119
+msgid "Extracted faces: %i"
+msgstr "Cares extretes: %i"
+
+#: src/gui/MainView.vala:123
+msgid "%i faces extracted"
+msgstr "%i cares extretes"
 
 #: src/gui/PopulateDialog.vala:37
 msgid ""

@@ -116,11 +116,11 @@ namespace AppWidgets {
                 }
             }
             var total_faces = this.source_image.faces.size;
-            this.extraction_view.face_label.set_text (@"Extracted faces: $total_faces");
+            this.extraction_view.face_label.set_text (_("Extracted faces: %i").printf (total_faces));
             //this.extraction_view.show_all ();
             this.stack.set_visible_child_name ("extraction_view");
 
-            window.header_bar.subtitle = @"$(window.pyfaces_client.get_number_faces ()) faces extracted";
+            window.header_bar.subtitle = _("%i faces extracted").printf (window.pyfaces_client.get_number_faces ());
         }
 
         public async void start_comparison_clicked () {

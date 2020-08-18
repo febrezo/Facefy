@@ -180,7 +180,7 @@ namespace AppWidgets {
             );
 
             var similarity = this.faces.get (current_face_index).similarity;
-            this.result_label.set_text ("Similarity: %f".printf (similarity));
+            this.result_label.set_text (_("Similarity: %f").printf (similarity));
 
             if (similarity <= 0.6) {
                 this.result_label.get_style_context ().add_class (Granite.STYLE_CLASS_ACCENT);
@@ -189,7 +189,12 @@ namespace AppWidgets {
             }
             this.comparison_face_pane = new FaceInfoPane (comparison_face);
             this.stack_grid.attach (comparison_face_pane, 1, 6);
-            this.comparisons_label.set_text (@"Candidate: $(current_face_index+1)/$(this.faces.size)");
+            this.comparisons_label.set_text (
+                _("Candidato: %i/%i").printf(
+                    current_face_index+1,
+                    this.faces.size
+                )
+            );
         }
     }
 }

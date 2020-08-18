@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.felixbrezo.Facefy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-18 18:54+0200\n"
+"POT-Creation-Date: 2020-08-18 23:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -127,6 +127,16 @@ msgstr ""
 msgid "Candidates"
 msgstr ""
 
+#: src/gui/ComparisonView.vala:183
+#, c-format
+msgid "Similarity: %f"
+msgstr ""
+
+#: src/gui/ComparisonView.vala:193
+#, c-format
+msgid "Candidato: %i/%i"
+msgstr ""
+
 #: src/gui/ExtractionView.vala:47
 msgid "Original image"
 msgstr ""
@@ -173,6 +183,16 @@ msgstr ""
 
 #: src/gui/MainView.vala:70
 msgid "Comparisons"
+msgstr ""
+
+#: src/gui/MainView.vala:119
+#, c-format
+msgid "Extracted faces: %i"
+msgstr ""
+
+#: src/gui/MainView.vala:123
+#, c-format
+msgid "%i faces extracted"
 msgstr ""
 
 #: src/gui/PopulateDialog.vala:37

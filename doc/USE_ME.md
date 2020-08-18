@@ -135,15 +135,15 @@ executable(
 
 It is not required, but it is usually a good habit to add them in alphabetical order to find them easily. Note that you will also need to add them to the `po/POTFILES` file to localize any strings within it. In any case, pay attention at any errors that may appear at compilation time.
 
-Note that if the new code has a dependency such `json-lib-1.0`, `gee-0.8` or `libsoup-2.4` you SHOULD also add the dependency too. In this template, this typical dependencies are commented, so removing the `#` would be enough.
+Note that if the new code has a dependency such `json-lib-1.0`, `gee-0.8` or `libsoup-2.4` you SHOULD also add the dependency too.
 
 ```
 …
   dependencies: [
     dependency('granite'),
-#    dependency('json-glib-1.0'),
+    dependency('json-glib-1.0'),
     dependency('gee-0.8'),
-#    dependency('libsoup-2.4')
+    dependency('libsoup-2.4')
   ],
 …
 )
@@ -241,14 +241,34 @@ Note that the `.json` file in the repository points to a `git` repository which 
     "sources" : [
         {
             "type" : "git",
-            "path" : "https://github.com/febrezo/Facefy"
+            "url" : "https://github.com/febrezo/Facefy",
+            "branch": "master"
         }
     ]
 }
 …
 ```
 
-You may opt to something like this:
+If you have performed some changes in the app, you can run it by pointing it to your Git repository.
+
+```
+…
+{
+    "name" : "com.felixbrezo.Facefy",
+    "builddir" : true,
+    "buildsystem" : "meson",
+    "sources" : [
+        {
+            "type" : "git",
+            "url" : "https://github.com/<your_user>/Facefy",
+            "branch": "master"
+        }
+    ]
+}
+…
+```
+
+You may also build it locally trying something like this:
 
 ```
 …

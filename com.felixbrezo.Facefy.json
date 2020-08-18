@@ -2,7 +2,7 @@
     "app-id" : "com.felixbrezo.Facefy",
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "3.36",
-    "base" : "io.felixbrezo.BaseApp",
+    "base" : "io.elementary.BaseApp",
     "base-version" : "juno-19.08",
     "sdk" : "org.gnome.Sdk",
     "command" : "com.felixbrezo.Facefy",
@@ -30,8 +30,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tar.xz",
-                    "sha256": "f434053ba1b5c8a5cc597e966ead3c5143012af827fd3f0697d21450bb8d87a6"
+                    "url": "https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tar.xz",
+                    "sha256": "e3003ed57db17e617acb382b0cade29a248c6026b1bd8aad1f976e9af66a83b0"
                 }
             ]
         },
@@ -54,8 +54,8 @@
               ]
             },
             "build-commands": [
-                "/app/bin/pip3.6 install dlib --prefix=/app --verbose",
-                "/app/bin/pip3.6 install pyfaces --prefix=/app --verbose --upgrade"
+                "/app/bin/pip3.8 install dlib --prefix=/app --verbose",
+                "/app/bin/pip3.8 install pyfaces>=0.3.0 --prefix=/app --verbose --upgrade"
             ]
         },
         {
@@ -64,8 +64,9 @@
             "buildsystem" : "meson",
             "sources" : [
                 {
-                    "type" : "dir",
-                    "path" : "/home/felix/Documentos/Proyectos/Facefy"
+                    "type" : "git",
+                    "url" : "https://github.com/febrezo/Facefy.git",
+                    "branch": "master"
                 }
             ]
         }

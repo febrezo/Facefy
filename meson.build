@@ -22,11 +22,6 @@ install_data(
     install_dir: join_paths(get_option('datadir'), 'icons')
 )
 
-install_data(
-    join_paths('data', 'bachfugue.wav'),
-    install_dir: join_paths(get_option('datadir'), 'icons')
-)
-
 # Translate and install our .desktop file
 i18n.merge_file(
     type: 'desktop',
@@ -77,7 +72,6 @@ executable(
     dependency('granite'),
     meson.get_compiler('vala').find_library('posix'),
     dependency('json-glib-1.0'),
-    dependency('vte-2.91'),
     dependency('gee-0.8'),
     dependency('libsoup-2.4')
   ],

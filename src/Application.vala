@@ -20,8 +20,7 @@
 */
 
 namespace Facefy {
-    public class FacefyApp : Gtk.Application {
-
+    public class FacefyApp : Gtk.Application {       
         public FacefyApp () {
             Object (
                 application_id: "com.felixbrezo.Facefy",
@@ -30,6 +29,9 @@ namespace Facefy {
         }
 
         protected override void activate () {
+            Gtk.Settings.get_default().set_property("gtk-icon-theme-name", "elementary");
+            Gtk.Settings.get_default().set_property("gtk-theme-name", "elementary");
+
             Window win = new Window(this);
             win.show_all();
         }

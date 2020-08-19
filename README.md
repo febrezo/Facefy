@@ -47,6 +47,8 @@ The aforementioned commands will require `root` permissions to add the remotes, 
 Once added the repos, use the following to install:
 
 ```
+flatpak install flathub org.gnome.Sdk//3.36
+flatpak install flathub io.elementary.BaseApp/x86_64/juno-19.08
 flatpak install febrehub com.felixbrezo.Facefy
 ```
 

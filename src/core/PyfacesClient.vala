@@ -47,10 +47,6 @@ namespace AppUtils {
             var session = new Soup.Session();
             session.send_message(msg);
 
-
-            // Parse response
-            var parser = new Json.Parser ();
-            
             try  {
                 return new SourceImage ((string) msg.response_body.flatten().data);
             }

@@ -83,7 +83,7 @@ namespace Facefy {
             this.default_height = 800;
             this.default_width = 1024;
             this.resizable = false;
-            this.header_bar = new HeaderBar ();
+            this.header_bar = new HeaderBar (this);
             var color = Gdk.RGBA();
             color.parse("#04B68F");
             Granite.Widgets.Utils.set_color_primary (this, color);
@@ -102,7 +102,6 @@ namespace Facefy {
                 Posix.system ("xdg-open %s".printf (data_folder));
             });
             this.header_bar.settings_menu_btn.clicked.connect (on_menu_clicked);
-            this.header_bar.menu.about_dialog = new AboutDialog (this);
 
             this.welcome_view.activated.connect ((index) => {
                 switch (index) {

@@ -66,6 +66,7 @@ package AppWidgets {
     class HeaderBar extends Gtk.HeaderBar{
         The definition of the header bar
         --
+        +window : Facefy.Window
         +search_image_btn : Gtk.Button
         +populate_db_btn : Gtk.Button
         +settings_menu_btn : Gtk.Button
@@ -88,11 +89,10 @@ package AppWidgets {
         +start_comparison_clicked ()
     }
 
-
     class SettingsMenu extends Gtk.Popover {
         The definition of the pop up settings menu
         --
-        +about_dialog : AppWidgets.AboutDialog
+        +window : Facefy.Window
         +view_data_folder_item : Gtk.ModelButton
         -on_help_clicked ()
         -on_view_data_folder_clicked ()
@@ -183,7 +183,7 @@ package Facefy {
 Face -- PyfacesClient : uses
 SourceImage -- PyfacesClient : uses
 HeaderBar *-- SettingsMenu : has >
-SettingsMenu *-- AboutDialog : spawns >
+SettingsMenu -- AboutDialog : spawns >
 MainView *-- ExtractionView : has >
 MainView *-- ComparisonView : has >
 MainView *-- SourceImage : has >

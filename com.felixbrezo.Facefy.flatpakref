@@ -1,7 +1,7 @@
 [Flatpak Ref]
 Name=com.felixbrezo.Facefy
-Branch=stable
-Title=Facefy: Face Recognition for All
+Branch=master
+Title=com.felixbrezo.Facefy from FebreHub
 Url=https://felixbrezo.com/repo/
 RuntimeRepo=https://dl.flathub.org/repo/flathub.flatpakrepo
 IsRuntime=false

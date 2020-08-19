@@ -24,19 +24,26 @@ using AppWidgets;
 
 namespace AppWidgets {
     public class HeaderBar : Gtk.HeaderBar {
+        public Facefy.Window window { get; construct; }
         public Gtk.Button search_image_btn;
         public Gtk.Button populate_db_btn;
         public Gtk.Button settings_menu_btn;
         public SettingsMenu menu;
 
-        public HeaderBar () {
+        public HeaderBar (Facefy.Window window) {
+            Object (
+                window: window
+            );
+        }
+        
+        construct {
             this.show_close_button = true;
             this.title = _("Facefy");
             this.subtitle = _("A GUI for playing with face recognition");
 
             // Set Menu
             // --------
-            this.menu = new SettingsMenu ();
+            this.menu = new SettingsMenu (this.window);
 
             // Gtk Settings
             /*var granite_settings = Granite.Settings.get_default ();

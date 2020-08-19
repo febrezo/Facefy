@@ -38,7 +38,6 @@ Thus, you need to install the application in your own OS following the official 
 Then, you need to add the two remotes required by Facefy. The `flathub` one to download some of the dependencies from and the `febrehub` which stores the application itself. This can be done using the following commands. 
 
 ```
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak remote-add --if-not-exists febrehub https://felixbrezo.com/febrehub.flatpakrepo
 ```
 
@@ -47,14 +46,14 @@ The aforementioned commands will require `root` permissions to add the remotes, 
 Once added the repos, use the following to install:
 
 ```
-flatpak install flathub org.gnome.Sdk//3.36
-flatpak install flathub io.elementary.BaseApp/x86_64/juno-19.08
-flatpak install febrehub com.felixbrezo.Facefy
+flatpak install https://felixbrezo.com/tools/com.felixbrezo.Facefy.flatpakref
 ```
+
+Note that if you didn't have the Flathub repository installed it will require you to enter the root password. The Flathub repository is used to grab some dependencies which are easily reachable from there.
 
 ## 3. Usage
 
-And visit your applications menu or type the following to run:
+To run the application simply type the following command:
 
 ```
 flatpak run com.felixbrezo.Facefy 

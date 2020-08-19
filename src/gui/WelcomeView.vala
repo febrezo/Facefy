@@ -30,7 +30,7 @@ namespace AppWidgets {
             this.subtitle = _("Face recognition for everyone");
             this.append ("multimedia-photo-manager", _("Extract faces from a file"), _("Extract faces from a given photo stored locally"));
             this.append ("document-import", _("Bulk import from folder"), _("Choose a local folder in your system to populate your database with faces found in any image file found"));
-            this.append ("info", _("Looking for help?"), _("Get support from online resources"));
+            this.append ("gnome-help", _("Looking for help?"), _("Get support from online resources"));
         }
     }
 }

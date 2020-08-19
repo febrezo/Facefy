@@ -73,7 +73,7 @@ The application is fully localized in the aforementioned languages. More to come
 
 The application is built on top of [`pyfaces`](https://github.com/febrezo/pyfaces), a simple wrapper built to make it easier to work with `dlib` and `face_recognition`. The class diagram of the GUI has been built using [PlantUML](https://plantuml.com) and is defined as follows.
 
-![Class diagram](./class_diagram.png)
+![Class diagram](doc/class_diagram.png)
 
 For more details on how to work with the application locally, check the [`HACKING.md`](doc/HACKING.md) file.
 

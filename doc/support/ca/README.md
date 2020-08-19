@@ -46,7 +46,7 @@ Aquest és un punt, però aquesta és una forma de fer que la gent sigui conscie
 
 ### He sentit alguna cosa que els sistemes de reconeixement facial tenen cert biaix racial. No m'agrada implicar-me amb la tecnologia d'aquesta manera!
 
-Tens raó. La tecnologia té algunes problemes i s'ha observat que els models actuals funcionen millor amb persones d'alguns grups ètnics. En el cas de `face_recognition` s'explica el perquè [aquí](https://github.com/ageitgey/face_recognition/wiki/Face-Recognition-Accuracy-Problems#question-face-recognition-works-well-with-european -individuals-but-overall-accuracy-is-lower-with-asian-individuals) i està associat a el conjunt de dades utilitzat per entrenar els models.
+Tens raó. La tecnologia té algunes problemes i s'ha observat que els models actuals funcionen millor amb persones d'alguns grups ètnics. En el cas de `face_recognition` s'explica el perquè [aquí](https://github.com/ageitgey/face_recognition/wiki/Face-Recognition-Accuracy-Problems#question-face-recognition-works-well-with-european-individuals-but-overall-accuracy-is-lower-with-asian-individuals) i està associat a el conjunt de dades utilitzat per entrenar els models.
 
 ## Sobre com es distribueix ...
 

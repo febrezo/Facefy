@@ -47,7 +47,7 @@ That's a point, but this is a way of making people conscious of how close this t
 
 ### I've heard that face recognition systems have a certain racial bias. I don't like getting involved with technology in this way!
 
-You're right. The technology has some problems, and current models have been found to work better with people of some ethnic groups. In the case of `face_recognition` it is explained why [here](https://github.com/ageitgey/face_recognition/wiki/Face-Recognition-Accuracy-Problems#question-face-recognition-works-well-with-european -individuals-but-overall-accuracy-is-lower-with-asian-individuals). The issue is linked to the features of the dataset used to train the models.
+You're right. The technology has some problems, and current models have been found to work better with people of some ethnic groups. In the case of `face_recognition` it is explained why [here](https://github.com/ageitgey/face_recognition/wiki/Face-Recognition-Accuracy-Problems#question-face-recognition-works-well-with-european-individuals-but-overall-accuracy-is-lower-with-asian-individuals). The issue is linked to the features of the dataset used to train the models.
 
 ## About how it is distributed…
 

@@ -69,6 +69,10 @@
                     "branch": "master"
                 }
             ]
+        },
+        {
+            "type": "patch",
+            "path": "elementary-theme.patch"
         }
     ]
 }

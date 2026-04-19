@@ -19,7 +19,7 @@ subdir('po')
 # TODO: remove in favour of subdir for easier maintenance
 install_data(
     join_paths('data', meson.project_name() + '.png'),
-    install_dir: join_paths(get_option('datadir'), 'icons')
+  install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', '128x128', 'apps')
 )
 
 # Translate and install our .desktop file
@@ -29,7 +29,7 @@ i18n.merge_file(
     output: meson.project_name() + '.desktop',
     install: true,
     install_dir: join_paths(get_option('datadir'), 'applications'),
-    po_dir: join_paths(meson.source_root(), 'po')
+    po_dir: join_paths(meson.project_source_root(), 'po')
 )
 
 # Translate and install our .appdata file
@@ -39,7 +39,7 @@ i18n.merge_file(
     output: meson.project_name() + '.appdata.xml',
     install: true,
     install_dir: join_paths(get_option('datadir'), 'metainfo'),
-    po_dir: join_paths(meson.source_root(), 'po')
+    po_dir: join_paths(meson.project_source_root(), 'po')
 )
 
 # Compilation
@@ -73,7 +73,7 @@ executable(
     meson.get_compiler('vala').find_library('posix'),
     dependency('json-glib-1.0'),
     dependency('gee-0.8'),
-    dependency('libsoup-2.4')
+    dependency('libsoup-3.0')
   ],
   install: true
 )

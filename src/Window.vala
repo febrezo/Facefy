@@ -33,6 +33,7 @@ namespace Facefy {
 
         private MainView main_view;
         private WelcomeView welcome_view;
+        private Gtk.Box welcome_container;
 
         public PyfacesClient pyfaces_client { get; construct set; }
 		private Pid child_pid;
@@ -92,6 +93,14 @@ namespace Facefy {
             // Define views
             // ------------
             this.welcome_view = new WelcomeView ();
+            this.welcome_container = new Gtk.Box (Gtk.Orientation.VERTICAL, 12);
+            var welcome_logo = new Gtk.Image.from_icon_name ("com.felixbrezo.Facefy", Gtk.IconSize.DIALOG);
+            welcome_logo.pixel_size = 96;
+            welcome_logo.halign = Gtk.Align.CENTER;
+            this.welcome_container.halign = Gtk.Align.CENTER;
+            this.welcome_container.valign = Gtk.Align.CENTER;
+            this.welcome_container.pack_start (welcome_logo, false, false, 0);
+            this.welcome_container.pack_start (this.welcome_view, false, false, 0);
 
             // Define window events
             // --------------------
@@ -120,7 +129,7 @@ namespace Facefy {
             // Pack things
             // -----------
             this.overlay_panel = new Gtk.Overlay ();
-            this.overlay_panel.add_overlay (this.welcome_view);
+            this.overlay_panel.add_overlay (this.welcome_container);
             this.overlay_panel.add_overlay (this.toast);
 
             this.set_titlebar(this.header_bar);

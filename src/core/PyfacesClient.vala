@@ -30,125 +30,120 @@ namespace AppUtils {
                 rpc_port: port
             );
         }
+
+        private string? post_json (string json) {
+            var path = @"http://$(this.rpc_host):$(this.rpc_port)";
+            var msg = new Soup.Message ("POST", path);
+            msg.set_request_body_from_bytes (
+                "application/json",
+                new GLib.Bytes (json.data)
+            );
+            print (@"[com.felixbrezo.Facefy] POST $path: $json\n");
+
+            var session = new Soup.Session ();
+            try {
+                var bytes = session.send_and_read (msg, null);
+                return (string) bytes.get_data ();
+            } catch (Error e) {
+                print ("Error found: %s".printf (e.message));
+            }
+
+            return null;
+        }
         
         public SourceImage extract_faces (string picture_path) {
-            var path = @"http://$(this.rpc_host):$(this.rpc_port)";
-            
-            // Build Json data
-            var msg = new Soup.Message ("POST", path);
             var json = """{"jsonrpc": 2.0, "id": 1, "method": "%s", "params": ["%s"]}""".printf (
                 "extract_faces",
                 picture_path
             );
-            msg.request_body.append_take (json.data);
-            print (@"[com.felixbrezo.Facefy] POST $path: $json\n");
-            
-            // Perform request
-            var session = new Soup.Session();
-            session.send_message(msg);
-
+            var response = this.post_json (json);
+            if (response == null) {
+                return new SourceImage ("{}");
+            }
             try  {
-                return new SourceImage ((string) msg.response_body.flatten().data);
+                return new SourceImage (response);
             }
             catch (Error e) {
                 print ("Error found: %s".printf (e.message));
             }
+
+            return new SourceImage ("{}");
         }
         
         public string get_data_folder () {
-            var path = @"http://$(this.rpc_host):$(this.rpc_port)";
-            
-            // Build Json data
-            var msg = new Soup.Message ("POST", path);
             var json = """{"jsonrpc": 2.0, "id": 1, "method": "%s", "params": []}""".printf (
                 "config"
             );
-            msg.request_body.append_take (json.data);
-            print (@"[com.felixbrezo.Facefy] POST $path: $json\n");
-
-            // Perform request
-            var session = new Soup.Session();
-            session.send_message(msg);
+            var response = this.post_json (json);
+            if (response == null) {
+                return "";
+            }
 
             var parser = new Json.Parser ();
-            parser.load_from_data ((string) msg.response_body.flatten ().data);
+            parser.load_from_data (response);
             try  {
                 return parser.get_root ().get_object ().get_object_member ("result").get_object_member ("config").get_object_member ("Main Options").get_string_member ("data_folder");
             }
             catch (Error e) {
                 print ("Error found: %s".printf (e.message));
             }
+
+            return "";
         }
         
         public Face? get_info_from_face (string face_path) {
-            var path = @"http://$(this.rpc_host):$(this.rpc_port)";
-            
-            // Build Json data
-            var msg = new Soup.Message ("POST", path);
             var json = """{"jsonrpc": 2.0, "id": 1, "method": "%s", "params": ["%s"]}""".printf (
                 "get_face",
                 face_path
             );
-            msg.request_body.append_take (json.data);
-            print (@"[com.felixbrezo.Facefy] POST $path: $json\n");
-
-            // Perform request
-            var session = new Soup.Session();
-            session.send_message(msg);
-
-            var parser = new Json.Parser ();
+            var response = this.post_json (json);
+            if (response == null) {
+                return null;
+            }
             
             try  {
-                return new Face ((string) msg.response_body.flatten().data);
+                return new Face (response);
             }
             catch (Error e) {
                 print ("Error found: %s".printf (e.message));
             }
+
+            return null;
         }
         
         public int get_number_faces () {
-            var path = @"http://$(this.rpc_host):$(this.rpc_port)";
-            
-            // Build Json data
-            var msg = new Soup.Message ("POST", path);
             var json = """{"jsonrpc": 2.0, "id": 1, "method": "%s", "params": []}""".printf (
                 "info"
             );
-            msg.request_body.append_take (json.data);
-            print (@"[com.felixbrezo.Facefy] POST $path: $json\n");
-
-            // Perform request
-            var session = new Soup.Session();
-            session.send_message(msg);
+            var response = this.post_json (json);
+            if (response == null) {
+                return 0;
+            }
 
             var parser = new Json.Parser ();
-            parser.load_from_data ((string) msg.response_body.flatten ().data);
+            parser.load_from_data (response);
             try  {
                 return (int) parser.get_root ().get_object ().get_object_member ("result").get_int_member ("faces");
             }
             catch (Error e) {
                 print ("Error found: %s".printf (e.message));
             }
+
+            return 0;
         }
         
         public Gee.ArrayList<Comparison> guess_face (string face_path) {
-            var path = @"http://$(this.rpc_host):$(this.rpc_port)";
-            
-            // Build Json data
-            var msg = new Soup.Message ("POST", path);
             var json = """{"jsonrpc": 2.0, "id": 1, "method": "%s", "params": ["%s"]}""".printf (
                 "guess_face",
                 face_path
             );
-            msg.request_body.append_take (json.data);
-            print (@"[com.felixbrezo.Facefy] POST $path: $json\n");
-
-            // Perform request
-            var session = new Soup.Session();
-            session.send_message(msg);
+            var response = this.post_json (json);
+            if (response == null) {
+                return new Gee.ArrayList<Comparison> ();
+            }
 
             var parser = new Json.Parser ();
-            parser.load_from_data((string) msg.response_body.flatten().data);
+            parser.load_from_data(response);
 
             var comparisons = new Gee.ArrayList<Comparison> ();
 

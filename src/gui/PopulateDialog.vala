@@ -45,7 +45,7 @@ namespace AppWidgets {
         construct {
             this.list_all_image_files ();
             this.state = TaskState.WAITING;
-            this.image_icon = GLib.Icon.new_for_string ("document-import");
+            this.image_icon = GLib.Icon.new_for_string ("folder-open-symbolic");
             //this.window_position = Gtk.WindowPosition.CENTER_ON_PARENT;
 
             // Define objects

@@ -2,7 +2,8 @@
 <!-- Copyright 2020 Félix Brezo <felixbrezoðisroot.org> -->
 <component type="desktop">
   <id>com.felixbrezo.Facefy</id>
-  <metadata_license>GPLv3</metadata_license>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
   <name>Facefy</name>
   <summary>A simple Vala tool to run Face Recognition</summary>
   <description>

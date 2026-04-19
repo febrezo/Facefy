@@ -63,17 +63,17 @@ namespace AppWidgets {
             // -------------------------
 
             // Start comparison            
-            this.start_comparison_btn = new Gtk.Button.from_icon_name ("search", Gtk.IconSize.LARGE_TOOLBAR);
+            this.start_comparison_btn = new Gtk.Button.from_icon_name ("system-search-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
             this.start_comparison_btn.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
             this.start_comparison_btn.clicked.connect (parent.start_comparison_clicked);
             this.start_comparison_btn.sensitive = false;
             this.start_comparison_btn.tooltip_text = _("Search face against the known DB");
 
-            this.prev_face_btn = new Gtk.Button.from_icon_name ("up");
+            this.prev_face_btn = new Gtk.Button.from_icon_name ("go-up-symbolic");
             this.prev_face_btn.sensitive = false;
             this.prev_face_btn.clicked.connect ( get_previous_face_clicked );
             
-            this.next_face_btn = new Gtk.Button.from_icon_name ("down");
+            this.next_face_btn = new Gtk.Button.from_icon_name ("go-down-symbolic");
             this.next_face_btn.sensitive = false;
             this.next_face_btn.clicked.connect ( get_next_face_clicked );
             

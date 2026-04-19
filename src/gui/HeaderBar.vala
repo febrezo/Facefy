@@ -57,12 +57,12 @@ namespace AppWidgets {
             // Add menu buttons
             // ----------------
             // Search image button
-            search_image_btn = new Gtk.Button.from_icon_name ("multimedia-photo-manager", Gtk.IconSize.LARGE_TOOLBAR);
+            search_image_btn = new Gtk.Button.from_icon_name ("image-x-generic-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
             search_image_btn.tooltip_text = _("Search face");
             this.pack_start (search_image_btn);
             
             // Populate DB button
-            populate_db_btn = new Gtk.Button.from_icon_name ("document-import", Gtk.IconSize.LARGE_TOOLBAR);
+            populate_db_btn = new Gtk.Button.from_icon_name ("folder-open-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
             populate_db_btn.tooltip_text = _("Populate faces database");
             this.pack_start (populate_db_btn);
 

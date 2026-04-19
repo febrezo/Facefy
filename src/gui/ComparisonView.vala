@@ -69,15 +69,15 @@ namespace AppWidgets {
 
             // Building buttons for face
             // -------------------------
-            this.prev_face_btn = new Gtk.Button.from_icon_name ("up");
+            this.prev_face_btn = new Gtk.Button.from_icon_name ("go-up-symbolic");
             this.prev_face_btn.sensitive = false;
             this.prev_face_btn.clicked.connect ( get_previous_face_clicked );
             
-            this.next_face_btn = new Gtk.Button.from_icon_name ("down");
+            this.next_face_btn = new Gtk.Button.from_icon_name ("go-down-symbolic");
             this.next_face_btn.sensitive = false;
             this.next_face_btn.clicked.connect (get_next_face_clicked);
             
-            this.view_original_btn = new Gtk.Button.from_icon_name ("multimedia-photo-viewer");
+            this.view_original_btn = new Gtk.Button.from_icon_name ("image-x-generic-symbolic");
             this.view_original_btn.sensitive = false;
             this.view_original_btn.clicked.connect  ( () => {
                 var face = parent.window.pyfaces_client.get_info_from_face (this.faces.get (current_face_index).face_path);
